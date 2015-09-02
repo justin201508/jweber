@@ -95,6 +95,34 @@ public class BootStrap {
 			Thread.currentThread().setContextClassLoader(daemon.catalinaloader);
 		}
 		
+		String command = "start";
+		try {
+			if (args.length > 1) {
+				command = args[args.length-1];
+			}
+			
+			//execute jweber commands
+			if(StartUpCommand.start.equals(command)) {
+				// start server
+				daemon.start();
+			}
+			else if(StartUpCommand.stop.equals(command)) {
+				// stop server
+				daemon.stop();
+			}
+		}
+		catch(Throwable t ) {
+			
+		}
+		
+	}
+
+
+	private void stop() {
+	}
+
+
+	private void start() {
 	}
 	
 
